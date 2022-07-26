@@ -1,47 +1,49 @@
 
 
+// Функція генерування випадкового кольору
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+
+
 // const buttonStart = document.querySelector('[data-start]');
 // const buttonStop = document.querySelector('[data-stop]');
 // let changesColor;
 
 // buttonStart.addEventListener('click', pressTheStartButton);
 // function pressTheStartButton() {
-    
-//     changesColor = setInterval(() => {
-//         document.body.style.backgroundColor = getRandomHexColor();
-//     }, 1000);
-//     abc.start();
+//      startIsDisabled.start();
 // };
-
 
 // buttonStop.addEventListener('click', pressTheStopButton)
 // function pressTheStopButton() {
-//     clearInterval(changesColor);
-//     abc.stop();
+//     startIsDisabled.stop();
 // };
 
-// const abc = {
+// const startIsDisabled = {
 //     isActive: false,
+
 //     start() {
 //         if (this.isActive) {
 //             return;
-//         }
+//         };
+
 //         this.isActive = true;
-//          changesColor = setInterval(() => {
-//         document.body.style.backgroundColor = getRandomHexColor();
-//     }, 1000);
+//         changesColor = setInterval(() => {
+//             document.body.style.backgroundColor = getRandomHexColor();
+//         }, 1000);
 //     },
 
 //     stop() {
+//         clearInterval(changesColor);
 //         this.isActive = false;
 //     }
-// }
+// };
 
 // Функція генерування випадкового кольору
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-
 
 const buttonStart = document.querySelector('[data-start]');
 const buttonStop = document.querySelector('[data-stop]');
@@ -49,30 +51,25 @@ let changesColor;
 
 buttonStart.addEventListener('click', pressTheStartButton);
 function pressTheStartButton() {
-     startIsDisabled.start();
+
+      changesColor = setInterval(() => {
+            document.body.style.backgroundColor = getRandomHexColor();
+      }, 1000);
+    
+    buttonStart.setAttribute('disabled', true);
+    buttonStop.removeAttribute('disabled', false)
 };
 
 buttonStop.addEventListener('click', pressTheStopButton)
 function pressTheStopButton() {
-    startIsDisabled.stop();
+
+    clearInterval(changesColor);
+    
+    buttonStart.removeAttribute('disabled', true)
+    buttonStop.setAttribute('disabled', true);
 };
 
-const startIsDisabled = {
-    isActive: false,
 
-    start() {
-        if (this.isActive) {
-            return;
-        };
 
-        this.isActive = true;
-        changesColor = setInterval(() => {
-            document.body.style.backgroundColor = getRandomHexColor();
-        }, 1000);
-    },
 
-    stop() {
-        clearInterval(changesColor);
-        this.isActive = false;
-    }
-};
+
