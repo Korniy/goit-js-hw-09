@@ -1,6 +1,8 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
+// Кількість мілісекунд на одиницю часу
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -20,18 +22,22 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-const inputEl = document.querySelector('#datetime-picker')
+const inputEl = document.querySelector('#datetime-picker');
+const buttonEl = document.querySelector('[type="button"]');
+const daysEl = document.querySelector('span[data-days]');
+const hoursEl = document.querySelector('span[data-hours]');
+const minutesEl = document.querySelector('span[data-minutes]');
+const secondsEl = document.querySelector('span[data-seconds]');
 
-flatpickr(inputEl, {
-    enableTime: true,
-    time_24hr: true,
-    defaultDate: new Date(),
-    minuteIncrement: 1,
-    onClose(selectedDates) {
-       
-    }
-});
-
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    console.log(selectedDates[0]);
+  },
+};
 
 
 
