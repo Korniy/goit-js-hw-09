@@ -20,11 +20,6 @@ button {
   padding: 5px 20px 5px 20px;
   font-size: 20px;
   border-radius: 8px;
-  color: black;
-  background-color: silver;
-}
-button:hover {
-  background-color: grey;
 }
 input {
   padding: 9px 20px 9px 20px;

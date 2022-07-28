@@ -20,16 +20,18 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-const myInput = document.querySelector("#datetime-picker");
-const fp = flatpickr(myInput, {
+const inputEl = document.querySelector('#datetime-picker')
+
+flatpickr(inputEl, {
     enableTime: true,
     time_24hr: true,
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-        console.log(selectedDates[0]);
+       
     }
-}); 
+});
+
 
 
 
