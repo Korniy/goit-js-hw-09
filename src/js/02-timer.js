@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
+import Notiflix from 'notiflix';
 
 // Кількість мілісекунд на одиницю часу
 
@@ -29,15 +30,36 @@ const hoursEl = document.querySelector('span[data-hours]');
 const minutesEl = document.querySelector('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]');
 
+buttonEl.setAttribute('disabled', true);
+
 const options = {
   enableTime: true,
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    console.log(selectedDates[0]);
+    arrayOfDates = selectedDates[0];
+    currentTime = Date.now();
+
+    if (arrayOfDates < currentTime) {
+      // alert("Please choose a date in the future")
+      Notiflix.Notify.warning("Please choose a date in the future");
+      buttonEl.setAttribute('disabled', true);
+    } else {
+      Notiflix.Notify.success("Nice try, Amigo!");
+      buttonEl.removeAttribute('disabled', true)
+    }
+      console.log(selectedDates[0]);
   },
 };
+flatpickr(inputEl, options);
 
+function addLeadingZero(value) {
+
+}
+
+function startOnButton() {
+  
+}
 
 
