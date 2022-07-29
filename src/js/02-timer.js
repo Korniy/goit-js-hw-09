@@ -2,26 +2,6 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import Notiflix from 'notiflix';
 
-// Кількість мілісекунд на одиницю часу
-
-function convertMs(ms) {
-  // Number of milliseconds per unit of time
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-
-  // Remaining days
-  const days = Math.floor(ms / day);
-  // Remaining hours
-  const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
-  const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
-  return { days, hours, minutes, seconds };
-}
 
 const inputEl = document.querySelector('#datetime-picker');
 const buttonEl = document.querySelector('[type="button"]');
@@ -47,19 +27,50 @@ const options = {
       buttonEl.setAttribute('disabled', true);
     } else {
       Notiflix.Notify.success("Nice try, Amigo!");
-      buttonEl.removeAttribute('disabled', true)
+      buttonEl.removeAttribute('disabled')
     }
       console.log(selectedDates[0]);
   },
 };
+
 flatpickr(inputEl, options);
 
-function addLeadingZero(value) {
 
+buttonEl.addEventListener('click', startTimer);
+
+// function startTimer() {
+//   const cbd = setInterval(() => {
+//     const abc = arrayOfDates - currentTime;
+//     if (abc >= 0) {
+//         daysEl.textContent = addLeadingZero(days);
+//         hoursEl.textContent = addLeadingZero(hours);
+//         minutesEl.textContent = addLeadingZero(minutes);
+//         secondsEl.textContent = addLeadingZero(seconds);
+//     }
+//   }, 1000);
+// };
+
+// function addLeadingZero(value) {
+//     return value.toString().padStart(2, '0');
+// }
+
+// Кількість мілісекунд на одиницю часу
+
+function convertMs(ms) {
+  // Number of milliseconds per unit of time
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  // Remaining days
+  const days = Math.floor(ms / day);
+  // Remaining hours
+  const hours = Math.floor((ms % day) / hour);
+  // Remaining minutes
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  // Remaining seconds
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+  return { days, hours, minutes, seconds };
 }
-
-function startOnButton() {
-  
-}
-
-
