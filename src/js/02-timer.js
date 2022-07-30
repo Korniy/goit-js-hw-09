@@ -31,7 +31,7 @@ const minutesEl = document.querySelector('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]');
 
 buttonEl.setAttribute('disabled', true);
-let arrayOfDates = 0;
+let arrayOfDates;
 
 const options = {
   enableTime: true,
@@ -57,6 +57,7 @@ const options = {
 flatpickr(inputEl, options);
 
 buttonEl.addEventListener('click', startTimer);
+
 
 function startTimer() {
   const startInterval = setInterval(() => {
