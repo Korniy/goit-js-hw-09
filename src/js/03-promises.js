@@ -20,9 +20,9 @@ function createPromise(position, delay) {
     });
   };
 
-formEl.addEventListener('submit', submitForm);
+formEl.addEventListener('submit', startSubmitForm);
 
-function submitForm(event) {
+function startSubmitForm(event) {
   event.preventDefault();
      
   let delay = Number(delayEl.value);
