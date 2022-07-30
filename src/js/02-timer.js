@@ -31,6 +31,7 @@ const minutesEl = document.querySelector('span[data-minutes]');
 const secondsEl = document.querySelector('span[data-seconds]');
 
 buttonEl.setAttribute('disabled', true);
+let arrayOfDates;
 
 const options = {
   enableTime: true,
