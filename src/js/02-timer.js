@@ -39,7 +39,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
 
-    arrayOfDates = selectedDates[0];
+    let arrayOfDates = selectedDates[0];
 
     if (arrayOfDates < Date.now()) {
       // alert("Please choose a date in the future")
