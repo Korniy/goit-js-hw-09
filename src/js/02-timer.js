@@ -43,7 +43,7 @@ const options = {
 
     if (arrayOfDates < Date.now()) {
       // alert("Please choose a date in the future")
-      Notiflix.Notify.warning("Please choose a date in the future");
+      Notiflix.Notify.failure("Please choose a date in the future");
       buttonEl.setAttribute('disabled', true);
     } else {
       Notiflix.Notify.success("Nice try, Amigo!");
@@ -70,7 +70,7 @@ function startTimer() {
 };
 
 function timerUpdate({ days, hours, minutes, seconds }) {
-  
+
   daysEl.textContent = addLeadingZero(days);
   hoursEl.textContent = addLeadingZero(hours);
   minutesEl.textContent = addLeadingZero(minutes);
